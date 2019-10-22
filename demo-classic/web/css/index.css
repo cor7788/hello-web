@@ -1,0 +1,33 @@
+.fleft {
+    float: left;
+}
+
+.fright {
+    float: right;
+}
+
+.container {
+
+}
+
+.table {
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}
+
+.t-title {
+    text-align: center;
+}
+
+.t-header {
+    margin-top: 20px;
+}
+
+.tf-right {
+    font-size: 20px;
+    line-height: 74px;
+    margin-left: 16px;
+}

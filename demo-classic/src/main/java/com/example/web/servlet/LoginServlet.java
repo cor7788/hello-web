@@ -1,4 +1,4 @@
-package com.example.servlet;
+package com.example.web.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,28 +13,28 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
-
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String checkCode = req.getParameter("checkCode");
 
-        // 首先检查验证码
+        // 1.获取验证码
         HttpSession session = req.getSession();
-        String cc = (String) session.getAttribute("checkCode");
+        String code = (String) session.getAttribute("checkCode");
+        session.removeAttribute("checkCode");
 
-        if (cc.equalsIgnoreCase(checkCode)) {
-            // 检查用户名和密码是否正确，如果都正确，重定向到登录成功界面
-            if ("root".equals(username) && "12345".equals(password)) {
+        // 2.比较验证码
+        if(code != null && code.equalsIgnoreCase(checkCode)) {
+            // 3.比较用户名和密码
+            if("root".equals(username) && "123456".equals(password)) {
                 session.setAttribute("username", username);
-                resp.sendRedirect(req.getContextPath() + "/success.jsp");
+                resp.sendRedirect(req.getContextPath() + "/userList.jsp");
             } else {
-                req.setAttribute("error", "用户名或密码错误");
-                req.getRequestDispatcher("/login.jsp").forward(req, resp);
+                req.setAttribute("err", "用户名或密码错误");
+                req.getRequestDispatcher("/").forward(req, resp);
             }
         } else {
-            // 验证码不正确，转发到登陆页面
-            req.setAttribute("ccerror", "验证码错误");
-            req.getRequestDispatcher("/login.jsp").forward(req, resp);
+            req.setAttribute("err", "验证码错误");
+            req.getRequestDispatcher("/").forward(req, resp);
         }
     }
 }

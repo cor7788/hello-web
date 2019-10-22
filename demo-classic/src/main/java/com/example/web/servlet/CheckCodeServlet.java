@@ -1,4 +1,4 @@
-package com.example.servlet;
+package com.example.web.servlet;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -12,9 +12,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet("/checkCode1")
+@WebServlet("/checkCode")
 public class CheckCodeServlet extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int width = 100;
