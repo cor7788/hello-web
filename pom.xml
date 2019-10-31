@@ -16,6 +16,7 @@
         <module>hello-request</module>
         <module>hello-servlet</module>
         <module>hello-filter</module>
+        <module>hello-redis</module>
     </modules>
 
     <properties>
