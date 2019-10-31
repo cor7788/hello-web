@@ -9,9 +9,13 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>hello-servlet</module>
         <module>demo-classic</module>
+        <module>hello-cookie</module>
         <module>hello-jdbc</module>
+        <module>hello-jsp</module>
+        <module>hello-request</module>
+        <module>hello-servlet</module>
+        <module>hello-filter</module>
     </modules>
 
     <properties>
@@ -58,9 +62,12 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-
-
-
+        <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.3</version>
+        </dependency>
     </dependencies>
 
 </project>
